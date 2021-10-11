@@ -85,7 +85,7 @@ const Home = ({ navigation }) => {
             </Text>
             <Text
               style={styles.titleStyle} >
-              Select your car !
+              Your booked cars!
             </Text>
             
             

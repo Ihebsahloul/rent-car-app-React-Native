@@ -55,7 +55,7 @@ const Tabs = () => {
                                 
                                 )
                             );
-                        case "Search":
+                        case "My Booked cars":
                             return (
                                 <View Style = {{ width: '100%',
                         
@@ -74,24 +74,7 @@ const Tabs = () => {
                                 </View>
                             
                             );
-                        case "Add":
-                            return (
-                                <View Style = {{ width: '100%',
-                                    height: 50,flexDirection: 'row',}}>
-                                <Image
-                                    source={icons.bookmark}
-                                    resizeMode="contain"
-                                    style={{
-                                        tintColor: tintColor,
-                                        marginTop :10,
-                                        width: 25,
-                                        height: 25
-                                    }}
-                                />
-                                
-                                </View>
-                            
-                            );
+                        
                         case "Account":
                             return (
                                 <View Style = {{ width: 50,
@@ -117,7 +100,7 @@ const Tabs = () => {
             })}
         >
             <Tab.Screen
-                name="HomeClient"
+                name="Home"
                 options={{ headerShown: false }}
                 component={HomeClient}
             />

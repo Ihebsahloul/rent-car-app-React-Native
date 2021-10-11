@@ -35,7 +35,7 @@ const Tabs = () => {
                     const tintColor = focused ? COLORS.primary : COLORS.gray;
 
                     switch (route.name) {
-                        case "HomeAdmin":
+                        case "Listing":
                             return (
                                 (
                                     <View Style = {{ width: 50,
@@ -100,7 +100,7 @@ const Tabs = () => {
             })}
         >
             <Tab.Screen
-                name="HomeAdmin"
+                name="Listing"
                 options={{ headerShown: false }}
                 component={HomeAdmin}
             />

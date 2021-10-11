@@ -122,12 +122,12 @@ const SignInScreen = ({navigation}) => {
     }
     setErrortext('');
     if (!userEmail) {
-      alert('Veuillez saisir la référence du dossier');
+      alert('Please insert your email address');
       return;
     }
     if (!userReference
 ) {
-      alert('Veuillez saisir votre Adresse mail');
+      alert('Please insert your password');
       return;
     }
     setLoading(false);
