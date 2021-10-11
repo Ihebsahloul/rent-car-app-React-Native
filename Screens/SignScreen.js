@@ -33,7 +33,7 @@ import * as Keychain from 'react-native-keychain';
 import BouncyCheckbox from "react-native-bouncy-checkbox";
 
 const SignInScreen = ({navigation}) => {
-  const [userEmail, setUserEmail] = useState('');
+  const [userEmail, setUserEmail] = useState('client@client.com');
   const [userReference, setUserReference] = useState('');
   const [loading, setLoading] = useState(false);
   const [errortext, setErrortext] = useState('');

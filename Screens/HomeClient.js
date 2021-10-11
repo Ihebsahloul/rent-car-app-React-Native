@@ -47,7 +47,8 @@ const HomeClient = ({ navigation }) => {
        // console.log(mockCars)
        // console.log(mockLogos)
         console.log("$$$$$$state$$$$$$$$$$$$"+state)
-        console.log(state),getCars()
+        console.log(state)
+        getCars()
       }, [])
 
       console.log('the get cards is '+getCars())
@@ -96,7 +97,7 @@ const HomeClient = ({ navigation }) => {
  >
 
         </SearchBar>
-        {/* Available Cars */}
+        {/* Available Cars 
         <Text style={{ marginTop: SIZES.base, marginHorizontal: SIZES.padding, ...FONTS.h2 }}>Brands</Text>
         <FlatList
                     horizontal = {true}
@@ -114,7 +115,7 @@ const HomeClient = ({ navigation }) => {
                 />
                 
 
-
+*/}
 
           </View>
             
@@ -143,6 +144,7 @@ const HomeClient = ({ navigation }) => {
                           </TouchableOpacity>
                           );}}
                 />
+                {/*
                 <FlatList
                     horizontal = {false}
                     showsHorizontalScrollIndicator={true}
@@ -160,6 +162,7 @@ const HomeClient = ({ navigation }) => {
                           </TouchableOpacity>
                           );}}
                 />
+                */}
             </View>
         </View>
         </ScrollView>

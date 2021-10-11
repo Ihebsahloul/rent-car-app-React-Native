@@ -26,7 +26,7 @@ const blogReducer = (state, action) => {
         image : images.car_example_image,
         id : Math.floor(Math.random()*9999 )}];
 
-        case 'edit':
+        case 'edit_original':
             return( state.map((car)=>{
                 if(car.id===action.payload.id)
                 {
@@ -37,14 +37,26 @@ const blogReducer = (state, action) => {
                 {
                     return car
                 } }))
-                
+        case "edit":
+            return [...state,{name :action.payload.name,
+                fuelType : action.payload.fuelType,
+                price : action.payload.price,
+                safety : action.payload.safety,
+                acceleration : action.payload.acceleration,
+                range : action.payload.range,
+                seats : action.payload.seats,
+                booked : action.payload.booked,
+                type : action.payload.type,
+                transmission : action.payload.transmission,
+                image : action.payload.image,
+                id : action.payload.id}];
 
 
       case 'delete' : 
       return state.filter((car) =>  car.id !== action.payload)
 
       case 'getAll' : 
-      return state ;
+      return  state;
 
       default : 
       return state;
@@ -84,13 +96,38 @@ const deleteCar =(dispatch) =>{
 const getCars =(dispatch) =>{
 
     return ()=>{
-
+       
     
     dispatch ({type : 'getAll'});
 };
 }
 
-const editCar=(dispatch) =>
+const editCar_original=(dispatch) =>
+    {
+      return (id,name, fuelType,price,acceleration,range,seats,booked,transmission,type,image,callback)=>{
+
+        
+        dispatch({type:'edit',payload: {id,name ,fuelType ,price ,
+    
+            acceleration ,
+            range ,
+            seats ,
+            booked ,
+        
+            transmission ,
+            type ,
+            image 
+            
+            }});
+            if ( callback)
+            {
+                callback();
+            }
+        
+      }
+    } 
+
+    const editCar=(dispatch) =>
     {
       return (id,name, fuelType,price,acceleration,range,seats,booked,transmission,type,image,callback)=>{
 
@@ -113,8 +150,9 @@ const editCar=(dispatch) =>
             }
         
       }
-    } 
+    }  
   
+    
 
 
 

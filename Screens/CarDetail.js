@@ -119,7 +119,7 @@ const CarDetail = ({route,navigation}) => {
     const [selectedEndDate, setSelectedEndDate] = useState(null);
     const startDate  =  selectedStartDate ? selectedStartDate.toString() : '';
     const endDate = selectedEndDate ? selectedEndDate.toString() : '';
-    const {state,editCar} =useContext(Context)
+    const {state,editCar,deleteCar} =useContext(Context)
     
     const id=item.id
     console.log(id)
@@ -146,10 +146,10 @@ const CarDetail = ({route,navigation}) => {
         }
       };
 
-      const handleBookPress =  (id,booked) => {
+      const handleBookPress =  async(id,booked) => {
         
-       
-        editCar(item.id,item.name,item.fuelType,item.price,item.acceleration,item.range,item.seats,true,item.transmission,item.type,images.car_example_image )
+       await deleteCar(item.id)
+        editCar(item.id,item.name,item.fuelType,item.price,item.acceleration,item.range,item.seats,true,item.transmission,item.type,item.image )
         console.log("mouhibbbbbbbbbbbbbbbb")
         console.log(state)    
         //console.log('item is : '+car.booked)
