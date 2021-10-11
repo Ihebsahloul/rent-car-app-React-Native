@@ -43,6 +43,9 @@ const blogReducer = (state, action) => {
       case 'delete' : 
       return state.filter((car) =>  car.id !== action.payload)
 
+      case 'getAll' : 
+      return state ;
+
       default : 
       return state;
     }
@@ -80,16 +83,16 @@ const deleteCar =(dispatch) =>{
 }
 const getCars =(dispatch) =>{
 
-    return (state)=>{
+    return ()=>{
 
     
-    dispatch ({type : 'getAll',payload : state});
+    dispatch ({type : 'getAll'});
 };
 }
 
 const editCar=(dispatch) =>
     {
-      return (id,name, fuelType,price,acceleration,range,seats,booked,transmission,type,image)=>{
+      return (id,name, fuelType,price,acceleration,range,seats,booked,transmission,type,image,callback)=>{
 
     
         dispatch({type:'edit',payload: {id,name ,fuelType ,price ,
@@ -103,7 +106,11 @@ const editCar=(dispatch) =>
             type ,
             image 
             
-            }})
+            }});
+            if ( callback)
+            {
+                callback();
+            }
         
       }
     } 

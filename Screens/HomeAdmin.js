@@ -22,7 +22,7 @@ import { get } from 'react-native/Libraries/Utilities/PixelRatio';
 
 
 
-const Home = ({ navigation }) => {
+const HomeAdmin = ({ navigation }) => {
 
     const [term, searchTerm] = useState('');
     const [mockCars, setMockCars] = useState([]);
@@ -355,4 +355,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default Home;
+export default HomeAdmin;

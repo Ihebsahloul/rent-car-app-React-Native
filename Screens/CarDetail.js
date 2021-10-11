@@ -149,10 +149,13 @@ const CarDetail = ({route,navigation}) => {
       const handleBookPress =  (id,booked) => {
         
        
-        editCar(item.id,item.name,item.fuelType,item.price,item.acceleration,item.range,item.seats,true,item.transmission,item.type,images.car_example_image)
-            console.log('item is : '+car.booked)
+        editCar(item.id,item.name,item.fuelType,item.price,item.acceleration,item.range,item.seats,true,item.transmission,item.type,images.car_example_image )
+        console.log("mouhibbbbbbbbbbbbbbbb")
+        console.log(state)    
+        //console.log('item is : '+car.booked)
             bookingRBSheet.current.close()
-            navigation.pop() 
+            navigation.pop();
+           
     }
 
 
@@ -476,7 +479,7 @@ const CarDetail = ({route,navigation}) => {
                     />
                 </View>
 
-                <Text style={{ ...FONTS.h2, marginStart : 20 ,marginTop : 20}}>Location</Text>
+                <Text style={{ ...FONTS.h2, marginStart : 20 ,marginTop : 20}}>Transmission</Text>
                 <View style={{ flexDirection: 'column', marginTop: SIZES.base,width : '100%', justifyContent: 'space-between' }}>
                     <LocationLabel
                         style = {{flex : 1}}

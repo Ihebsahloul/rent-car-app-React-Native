@@ -22,7 +22,7 @@ import { get } from 'react-native/Libraries/Utilities/PixelRatio';
 
 
 
-const Home = ({ navigation }) => {
+const HomeClient = ({ navigation }) => {
 
     const [term, searchTerm] = useState('');
     const [mockCars, setMockCars] = useState([]);
@@ -47,10 +47,10 @@ const Home = ({ navigation }) => {
        // console.log(mockCars)
        // console.log(mockLogos)
         console.log("$$$$$$state$$$$$$$$$$$$"+state)
-        console.log(state)
+        console.log(state),getCars()
       }, [])
 
-      //console.log('the get cards is '+getCars())
+      console.log('the get cards is '+getCars())
       //forceUpdate();
       
     
@@ -355,4 +355,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default Home;
+export default HomeClient;

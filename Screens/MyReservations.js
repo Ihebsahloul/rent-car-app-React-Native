@@ -19,6 +19,7 @@ import { logosData, mockCarsData } from '../utilities/AppUtils';
 import BrandItem from '../Components/BrandItem';
 import { Context } from '../Context/CarContext';
 import { get } from 'react-native/Libraries/Utilities/PixelRatio';
+import { AntDesign } from '@expo/vector-icons';
 
 
 
@@ -80,7 +81,7 @@ const Home = ({ navigation }) => {
           
 
             <Text
-              style={styles.subTitleStyle}>
+              style={styles.ratingTextStyle}>
               Hello Jhon Doe!
             </Text>
             <Text
@@ -97,21 +98,8 @@ const Home = ({ navigation }) => {
 
         </SearchBar>
         {/* Available Cars */}
-        <Text style={{ marginTop: SIZES.base, marginHorizontal: SIZES.padding, ...FONTS.h2 }}>Brands</Text>
-        <FlatList
-                    horizontal = {true}
-                    showsHorizontalScrollIndicator={true}
-                    data = {mockLogos}
-                    keyExtractor={item => item.id}
-                    renderItem ={({ item }) => {
-
-                        return (
-                          <TouchableOpacity   >
-            
-                          <BrandItem result = {item}/>  
-                          </TouchableOpacity>
-                          );}}
-                />
+     
+      
                 
 
 
@@ -129,37 +117,66 @@ const Home = ({ navigation }) => {
                 <FlatList
                     horizontal = {false}
                     showsHorizontalScrollIndicator={true}
-                    data = {state}
+                    data = {mockCarsData}
                     keyExtractor={item => item.id}
                     renderItem ={({ item }) => {
 
                         return (
-                          <TouchableOpacity  onPress = {()=> navigation.navigate('DestinationDetail', {
-                            item: item,
-                            otherParam: 'test data',
-                          })} >
-            
-                          <CarItem result = {{item}}/>  
-                          </TouchableOpacity>
-                          );}}
-                />
-                <FlatList
-                    horizontal = {false}
-                    showsHorizontalScrollIndicator={true}
-                    data = {mockCars}
-                    keyExtractor={item => item.id}
-                    renderItem ={({ item }) => {
+                       
 
-                        return (
-                          <TouchableOpacity  onPress = {()=> navigation.navigate('DestinationDetail', {
-                            item: item,
-                            otherParam: 'test data',
-                          })} >
-            
-                          <CarItem result = {{item}}/>  
-                          </TouchableOpacity>
+ 
+
+                       
+                                  
+                          <View  style ={{flexDirection : 'row'}} >
+                          
+                                    
+                            
+                          
+                          <View style = {styles.textSectionStyle} >
+                                  <Text style = {styles.ratingTextStyle}>{item.name}</Text>
+                                  <Text style = {styles.titleStyle}>{item.fuelType}</Text>
+                                  <Text style = {styles.textStyle}>{item.price} $</Text>
+                                  <Text style = {styles.subTitleStyle}>{item.fuelType}</Text>
+                          
+                            
+                                  
+                                  </View>
+                                  <View style={{
+                                            width: '60%',
+                                            alignContent : 'flex-end',
+                                            justifyContent : 'flex-end',
+                                            height: 170,
+                                            marginTop : 40,
+                                            marginBottom : 20,
+                                            paddingEnd :20,
+                                            resizeMode: 'center',
+                                            marginEnd : 50,
+                                      
+                                           
+                                          }} >
+                                  
+                                  <Image source = {item.image}
+                                          style={{
+                                            width: '100%',
+                                            alignContent : 'flex-end',
+                                            justifyContent : 'flex-end',
+                                            height: 170,
+                                            resizeMode: 'contain',
+                                         
+                                      
+                                           
+                                          }} ></Image>
+                                          
+                                          </View>
+                          
+                                          </View>
+                                          
+                          
+                              
                           );}}
                 />
+                
             </View>
         </View>
         </ScrollView>
@@ -167,6 +184,150 @@ const Home = ({ navigation }) => {
 };
 
 const styles = StyleSheet.create({
+  backgroundStyle: {
+      
+    flexDirection : 'column',
+
+    
+    
+    
+    paddingTop : 5,
+
+  },
+  itemStyle: {
+  
+    flexDirection : 'column',
+
+    
+    
+    
+    paddingTop : 5,
+
+  },
+  cardViewStyle: {
+    borderRadius : 15,
+    height : 220,
+      backgroundColor : 'white',
+         marginTop : 20,
+         marginStart :20,
+         marginBottom :25,
+         marginEnd :20,
+         backgroundColor : '#ffffff',
+          marginTop : 15,
+          flexDirection : 'row',
+          justifyContent : 'flex-start',
+          shadowColor : '#A2A2A2',
+           shadowOffset: {
+           width: 2
+  ,
+           height: 1,
+               },
+           shadowOpacity: 0.29,
+           shadowRadius: 15,
+           elevation: 2,
+           
+       
+   },
+   arrowStyle: {
+    borderRadius : 10,
+
+       
+         
+         backgroundColor : '#f0dcd8',
+          marginBottom :5,
+          height :40,
+          width : 50,
+          marginStart :  Platform.OS === 'android' ? 130 : 150,
+          flexDirection : 'row',
+          justifyContent : 'center',
+          shadowColor : '#f0dcd8',
+           shadowOffset: {
+           width: 2
+  ,
+           height: 1,
+               },
+           shadowOpacity: 0.4,
+           shadowRadius: 15,
+           elevation: 2,
+           
+       
+   },
+  textSectionStyle: {
+  
+    flexDirection : 'column',
+    resizeMode: 'stretch',
+    height : '100%',
+    width : '33%',
+    marginStart : 25,
+    marginTop : 20,
+    paddingTop : 5,
+
+  },
+  titleStyle: {
+    //color : '#555877',
+    color :'grey',
+    fontSize : 17,
+    width : 130,
+    paddingVertical : 10,
+    marginStart :20,
+    alignItems: 'baseline',
+  
+   
+   textAlignVertical : 'center',
+    fontWeight : '500',
+    fontWeight : '600',
+    fontFamily : 'Roboto-Regular'
+  },
+  subTitleStyle: {
+    color : '#0E58D1',
+    fontSize : 13,
+    marginTop : 5,
+    marginBottom : 12,
+
+
+    fontWeight : '600',
+    fontFamily : 'Roboto-Regular',
+    justifyContent : 'flex-end'
+  },
+  textStyle: {
+    color : '#FF5A5E',
+    fontSize : 20,
+    marginEnd : 10,
+    marginStart :20,
+    marginBottom : 10,
+    fontFamily : 'Roboto-Bold',
+    justifyContent : 'flex-end'
+  } ,
+  bookedStyle: {
+    color : '#21C3C8',
+    fontSize : 17,
+    marginEnd : 10,
+    marginBottom : 10,
+    fontFamily : 'Roboto-Bold',
+    justifyContent : 'flex-end'
+  } ,
+  ratingTextStyle: {
+    color : 'black',
+    fontSize : 22,
+    fontFamily : 'Roboto-Bold',
+    marginStart : 0,
+    marginStart :20,
+    marginTop : 25,
+    justifyContent : 'flex-start',
+    alignSelf : 'flex-start'
+  }  
+  ,
+  imageStyle :{
+
+    height :120,
+    width : 250,
+    borderRadius : 7,
+    marginStart :20,
+    flex : 1 , 
+    alignSelf : 'auto'
+
+}
+,
     container: {
         flex: 1.3,
         height : '100%',
@@ -215,18 +376,7 @@ const styles = StyleSheet.create({
         shadowRadius: 3.84,
 
         elevation: 5,
-    },titleStyle: {
-        color : 'black',
-        fontSize : 28,
-        marginStart : 20,
-        marginBottom : 0,
-        marginTop : Platform.OS === 'android' ? 0 : StatusBar.currentHeight || 10,
-        textTransform: 'capitalize',
-        fontWeight : '500',
-        fontFamily : Platform.OS === 'android' ? 'Roboto-Bold' : 'Roboto-Bold',
-       // fontFamily : 'Roboto',
-        justifyContent : 'flex-start'
-      },
+    },
       flatListStyle: {
            
          
@@ -253,25 +403,7 @@ const styles = StyleSheet.create({
          fontFamily : 'Roboto-Medium',
          justifyContent : 'flex-end'
        },
-      cardViewStyle: {
-        //height : CARD_HEIGHT,
-        height : '100%',
-         borderRadius : 10,
-        
-          borderRadius: 25,
-           marginTop : 15,
-           justifyContent : 'flex-start',
-            shadowColor : '#A2A2A2',
-            shadowOffset: {
-            width: 2
-   ,
-            height: 3,
-                },
-            shadowOpacity: 0.42,
-            shadowRadius: 15,
-            elevation: 5,
-           
-       },
+      
        chipsViewStyle: {
         flexDirection : 'column',
         marginTop : 10,
