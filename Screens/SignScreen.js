@@ -111,6 +111,15 @@ const SignInScreen = ({navigation}) => {
  
 
   const handleSubmitPress =  async() => {
+    setLoading(true);
+    if ( userEmail == 'admin@admin.com')
+    {
+      navigation.navigate("HomeAdmin") 
+    } else if (userEmail == 'client@client.com')
+    {
+      navigation.navigate("HomeClient") 
+
+    }
     setErrortext('');
     if (!userEmail) {
       alert('Veuillez saisir la référence du dossier');
@@ -121,7 +130,7 @@ const SignInScreen = ({navigation}) => {
       alert('Veuillez saisir votre Adresse mail');
       return;
     }
-    setLoading(true);
+    setLoading(false);
 
    /*let dataToSend = {reference: userEmail, email: userReferenc};
     let formBody = [];
@@ -263,13 +272,12 @@ Travel, love a car
              value ={ userEmail}
                 onChangeText={(UserEmail) =>
                   setUserEmail(UserEmail)}
-                placeholder="Référence" //dummy@abc.com
+                placeholder="Adresse mail" //dummy@abc.com
                 placeholderTextColor="#8b9cb5"
                 autoCapitalize="none"
                 keyboardType="email-address"
                 returnKeyType="next"
-                ref=
-                {input => { emailInputRef = input }}
+           
                 onSubmitEditing={() =>
                   passwordInputRef.current &&
                   passwordInputRef.current.focus()
@@ -284,11 +292,10 @@ Travel, love a car
                  value = {userReference}
                 onChangeText={(userReference) =>
                   setUserReference(userReference)}
-                placeholder="Adresse mail" //12345
+                placeholder="Mot de passe" //12345
                 placeholderTextColor="#8b9cb5"
                 keyboardType="default"
-                ref=
-                {input => { passwordInputRef = input }}
+               
                 autoCapitalize ={'none'}
                 onSubmitEditing={Keyboard.dismiss}
                 blurOnSubmit={false}
@@ -307,7 +314,7 @@ Travel, love a car
     start={{x: 0.0, y: 1.0}} end={{x: 1.0, y: 1.0}}
     style={{ height: 53, width: '85%', alignItems: 'center',marginTop :50,marginStart : 30,marginBottom : 25,marginEnd :40, justifyContent: 'center',borderRadius : 8,padding :1}}>
     <TouchableOpacity style={styles.buttonContainer}>
-        <Text style={styles.buttonText} onPress={() => { navigation.navigate("Home") }}>
+        <Text style={styles.buttonText} onPress={() =>  handleSubmitPress()}>
             Login
         </Text>
     </TouchableOpacity>

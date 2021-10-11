@@ -10,7 +10,9 @@ import { Provider } from "./Context/CarContext";
 // screens
 import { Onboarding, CarDetail,SignInScreen,AddCar } from "./Screens/";
 // extra screens
-import Tabs from "./navigation/tabs";
+import TabsAdmin from "./navigation/tabsAdmin";
+import TabsClient from "./navigation/tabsClient";
+
 
 import { icons, COLORS, SIZES } from './constants';
 import { useFonts } from 'expo-font';
@@ -74,8 +76,14 @@ const App = () => {
 
                 {/* Tabs */}
                 < Stack.Screen
-                    name="Home"
-                    component={Tabs}
+                    name="HomeAdmin"
+                    component={TabsAdmin}
+                    options={{ headerShown: false }}
+                    
+                />
+                   < Stack.Screen
+                    name="HomeClient"
+                    component={TabsClient}
                     options={{ headerShown: false }}
                     
                 />

@@ -423,7 +423,7 @@ const CarDetail = ({route,navigation}) => {
                 >
                     <View style={{ flex: 1 }}>
                         <TouchableOpacity
-                            onPress={() => { navigation.navigate('Home') }}
+                            onPress={() => { navigation.navigate('HomeClient') }}
                         >
                             <Image
                                 source={icons.back}
