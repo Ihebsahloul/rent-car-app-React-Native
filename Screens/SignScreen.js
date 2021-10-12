@@ -111,15 +111,8 @@ const SignInScreen = ({navigation}) => {
  
 
   const handleSubmitPress =  async() => {
-    setLoading(true);
-    if ( userEmail == 'admin@admin.com')
-    {
-      navigation.navigate("HomeAdmin") 
-    } else if (userEmail == 'client@client.com')
-    {
-      navigation.navigate("HomeClient") 
-
-    }
+    //setLoading(true);
+    
     setErrortext('');
     if (!userEmail) {
       alert('Please insert your email address');
@@ -129,6 +122,13 @@ const SignInScreen = ({navigation}) => {
 ) {
       alert('Please insert your password');
       return;
+    } else if ( userEmail == 'admin@admin.com')
+    {
+      navigation.navigate("HomeAdmin") 
+    } else if (userEmail == 'client@client.com')
+    {
+      navigation.navigate("HomeClient") 
+
     }
     setLoading(false);
 
@@ -310,7 +310,7 @@ Travel, love a car
               </Text>
             ) : null}
             <LinearGradient
-       colors={['#FB8D41','#FF4500','#CD458F', '#21C3C8','']}
+       colors={['#FB8D41','#FF4500','#CD458F', '#21C3C8']}
     start={{x: 0.0, y: 1.0}} end={{x: 1.0, y: 1.0}}
     style={{ height: 53, width: '85%', alignItems: 'center',marginTop :50,marginStart : 30,marginBottom : 25,marginEnd :40, justifyContent: 'center',borderRadius : 8,padding :1}}>
     <TouchableOpacity style={styles.buttonContainer}>
@@ -494,7 +494,7 @@ buttonText: {
   textAlign: 'center',
   color: 'black',
   backgroundColor: 'white',
-  padding: 12,
+  padding : Platform.OS === 'android' ? 10 : 12,
   fontSize : 22,
   
   fontFamily : 'Roboto-Medium',

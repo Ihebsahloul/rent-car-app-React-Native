@@ -28,7 +28,7 @@ const HomeAdmin = ({ navigation }) => {
     const [mockCars, setMockCars] = useState([]);
     const [mockLogos, setMockLogos] = useState([]);
     const {state,getCars } = useContext(Context);
-    //const {state,setState } = useState([]);
+ 
     
     
 
@@ -37,21 +37,17 @@ const HomeAdmin = ({ navigation }) => {
         try {
           setMockCars(mockCarsData)
           setMockLogos (logosData)
-          //setState(mockCarsData)
+         
         } catch (e) {
           
         }
       }
       useEffect(() => {
         readData()
-       // console.log(mockCars)
-       // console.log(mockLogos)
-        console.log("$$$$$$state$$$$$$$$$$$$"+state)
-        console.log(state)
+
+       console.log(state)
       }, [])
 
-      //console.log('the get cards is '+getCars())
-      //forceUpdate();
       
     
 
@@ -98,20 +94,7 @@ const HomeAdmin = ({ navigation }) => {
         </SearchBar>
         {/* Available Cars */}
         <Text style={{ marginTop: SIZES.base, marginHorizontal: SIZES.padding, ...FONTS.h2 }}>Brands</Text>
-        <FlatList
-                    horizontal = {true}
-                    showsHorizontalScrollIndicator={true}
-                    data = {mockLogos}
-                    keyExtractor={item => item.id}
-                    renderItem ={({ item }) => {
-
-                        return (
-                          <TouchableOpacity   >
-            
-                          <BrandItem result = {item}/>  
-                          </TouchableOpacity>
-                          );}}
-                />
+      
                 
 
 
@@ -134,32 +117,12 @@ const HomeAdmin = ({ navigation }) => {
                     renderItem ={({ item }) => {
 
                         return (
-                          <TouchableOpacity  onPress = {()=> navigation.navigate('DestinationDetail', {
-                            item: item,
-                            otherParam: 'test data',
-                          })} >
             
                           <CarItem result = {{item}}/>  
-                          </TouchableOpacity>
+                     
                           );}}
                 />
-                <FlatList
-                    horizontal = {false}
-                    showsHorizontalScrollIndicator={true}
-                    data = {mockCars}
-                    keyExtractor={item => item.id}
-                    renderItem ={({ item }) => {
-
-                        return (
-                          <TouchableOpacity  onPress = {()=> navigation.navigate('DestinationDetail', {
-                            item: item,
-                            otherParam: 'test data',
-                          })} >
-            
-                          <CarItem result = {{item}}/>  
-                          </TouchableOpacity>
-                          );}}
-                />
+                
             </View>
         </View>
         </ScrollView>
@@ -224,7 +187,6 @@ const styles = StyleSheet.create({
         textTransform: 'capitalize',
         fontWeight : '500',
         fontFamily : Platform.OS === 'android' ? 'Roboto-Bold' : 'Roboto-Bold',
-       // fontFamily : 'Roboto',
         justifyContent : 'flex-start'
       },
       flatListStyle: {
@@ -246,7 +208,7 @@ const styles = StyleSheet.create({
       },
       subTitleStyle: {
         color : '#A2A2A2',
-        //color:'black',
+
          fontSize : 21,
          marginStart : 20,
          marginTop : 25,
@@ -254,7 +216,6 @@ const styles = StyleSheet.create({
          justifyContent : 'flex-end'
        },
       cardViewStyle: {
-        //height : CARD_HEIGHT,
         height : '100%',
          borderRadius : 10,
         
@@ -278,7 +239,6 @@ const styles = StyleSheet.create({
         marginBottom : 10
       },
       cardViewStyle: {
-       //height : CARD_HEIGHT,
        height : '100%',
         borderRadius : 10,
        
@@ -298,7 +258,6 @@ const styles = StyleSheet.create({
       },
       hintStyle: {
 
-          //color : '#A2A2A2',
           color :'white',
         fontSize : 17,
         alignSelf : 'flex-start',
@@ -341,7 +300,6 @@ const styles = StyleSheet.create({
 },
       hintSecondStyle: {
 
-        //color : '#A2A2A2',
         color :'white',
       fontSize : 20,
       alignSelf : 'flex-start',

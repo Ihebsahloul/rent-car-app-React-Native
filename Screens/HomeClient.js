@@ -37,22 +37,19 @@ const HomeClient = ({ navigation }) => {
         try {
           setMockCars(mockCarsData)
           setMockLogos (logosData)
-          //setState(mockCarsData)
+   
         } catch (e) {
           
         }
       }
       useEffect(() => {
         readData()
-       // console.log(mockCars)
-       // console.log(mockLogos)
-        console.log("$$$$$$state$$$$$$$$$$$$"+state)
+     
         console.log(state)
         getCars()
       }, [])
 
-      console.log('the get cards is '+getCars())
-      //forceUpdate();
+ 
       
     
 
@@ -97,25 +94,8 @@ const HomeClient = ({ navigation }) => {
  >
 
         </SearchBar>
-        {/* Available Cars 
-        <Text style={{ marginTop: SIZES.base, marginHorizontal: SIZES.padding, ...FONTS.h2 }}>Brands</Text>
-        <FlatList
-                    horizontal = {true}
-                    showsHorizontalScrollIndicator={true}
-                    data = {mockLogos}
-                    keyExtractor={item => item.id}
-                    renderItem ={({ item }) => {
+       
 
-                        return (
-                          <TouchableOpacity   >
-            
-                          <BrandItem result = {item}/>  
-                          </TouchableOpacity>
-                          );}}
-                />
-                
-
-*/}
 
           </View>
             
@@ -134,34 +114,26 @@ const HomeClient = ({ navigation }) => {
                     keyExtractor={item => item.id}
                     renderItem ={({ item }) => {
 
-                        return (
-                          <TouchableOpacity  onPress = {()=> navigation.navigate('DestinationDetail', {
-                            item: item,
-                            otherParam: 'test data',
-                          })} >
+                        return ( 
+                          <View>
+                         
+                         {item.booked  ?  <TouchableOpacity 
+                          > 
             
                           <CarItem result = {{item}}/>  
-                          </TouchableOpacity>
+                          </TouchableOpacity> : <TouchableOpacity onPress = {()=> navigation.navigate('DestinationDetail', {
+                            item: item,
+                            otherParam: 'test data',
+                          })} > 
+            
+                          <CarItem result = {{item}}/>  
+                          </TouchableOpacity> }
+                    
+                    </View>
                           );}}
                 />
                 {/*
-                <FlatList
-                    horizontal = {false}
-                    showsHorizontalScrollIndicator={true}
-                    data = {mockCars}
-                    keyExtractor={item => item.id}
-                    renderItem ={({ item }) => {
-
-                        return (
-                          <TouchableOpacity  onPress = {()=> navigation.navigate('DestinationDetail', {
-                            item: item,
-                            otherParam: 'test data',
-                          })} >
-            
-                          <CarItem result = {{item}}/>  
-                          </TouchableOpacity>
-                          );}}
-                />
+             
                 */}
             </View>
         </View>

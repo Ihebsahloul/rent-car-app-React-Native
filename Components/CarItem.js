@@ -30,7 +30,7 @@ const CarItem = ({result}) => {
   }, []);
 
   const updateBookedText = (booked) => {
-    //function to handle the date change
+    //function to handle the booking state change
     if (booked ===  false ) {
       setBookedText('available');
     } else {
@@ -192,7 +192,6 @@ const CarItem = ({result}) => {
 
       },
       titleStyle: {
-        //color : '#555877',
         color :'grey',
         fontSize : 17,
         width : 130,
@@ -228,9 +227,10 @@ const CarItem = ({result}) => {
       bookedStyle: {
         color : '#21C3C8',
         fontSize : 17,
-        marginEnd : 10,
-        marginBottom : 10,
+   
+        
         fontFamily : 'Roboto-Bold',
+        marginBottom : Platform.OS === 'android' ? 20  : 10,
         justifyContent : 'flex-end'
       } ,
       ratingTextStyle: {

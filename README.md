@@ -37,10 +37,10 @@ Updating the react-native-scripts dependency of your app should be as simple as 
 
 Upgrading to a new version of React Native requires updating the react-native, react, and expo package versions, and setting the correct sdkVersion in app.json. See the versioning guide for up-to-date information about package version compatibility.
 
-##Available Scripts
+# Available Scripts
 If Yarn was installed when the project was initialized, then dependencies will have been installed via Yarn, and you should probably use it to run these commands as well. Unlike dependency installation, command running syntax is identical for Yarn and NPM at the time of this writing.
 
-####npm start
+# npm start
 Runs your app in development mode.
 
 Open it in the Expo app on your phone to view it. It will reload if you save edits to your files, and you will see build errors and logs in the terminal.
@@ -48,18 +48,18 @@ Open it in the Expo app on your phone to view it. It will reload if you save edi
 Sometimes you may need to reset or clear the React Native packager's cache. To do so, you can pass the --reset-cache flag to the start script:
 
 npm start -- --reset-cache
-# or
+or
 yarn start -- --reset-cache
 npm test
 Runs the jest test runner on your tests.
 
-##npm run ios
+# npm run ios
 Like npm start, but also attempts to open your app in the iOS Simulator if you're on a Mac and have it installed.
 
-##npm run android
+# npm run android
 Like npm start, but also attempts to open your app on a connected Android device or emulator. Requires an installation of Android build tools (see React Native docs for detailed setup). We also recommend installing Genymotion as your Android emulator. Once you've finished setting up the native build environment, there are two options for making the right copy of adb available to Create React Native App:
 
-##Using Android Studio's adb
+# Using Android Studio's adb
 Make sure that you can run adb from your terminal.
 Open Genymotion and navigate to Settings -> ADB. Select “Use custom Android SDK tools” and update with your Android SDK directory.
 Using Genymotion's adb
@@ -71,20 +71,20 @@ This will start the process of "ejecting" from Create React Native App's build s
 
 Warning: Running eject is a permanent action (aside from whatever version control system you use). An ejected app will require you to have an Xcode and/or Android Studio environment set up.
 
-##Customizing App Display Name and Icon
+# Customizing App Display Name and Icon
 You can edit app.json to include configuration keys under the expo key.
 
 To change your app's display name, set the expo.name key in app.json to an appropriate string.
 
 To set an app icon, set the expo.icon key in app.json to be either a local path or a URL. It's recommended that you use a 512x512 png file with transparency.
 
-##Writing and Running Tests
+# Writing and Running Tests
 This project is set up to use jest for tests. You can configure whatever testing strategy you like, but jest works out of the box. Create test files in directories called __tests__ or with the .test extension to have the files loaded by jest. See the the template project for an example test. The jest documentation is also a wonderful resource, as is the React Native testing tutorial.
 
-##Environment Variables
+# Environment Variables
 You can configure some of Create React Native App's behavior using environment variables.
 
-##Configuring Packager IP Address
+# Configuring Packager IP Address
 When starting your project, you'll see something like this for your project URL:
 
 exp://192.168.0.2:19000
@@ -92,7 +92,7 @@ The "manifest" at that URL tells the Expo app how to retrieve and load your app'
 
 In some cases, this is less than ideal. This might be the case if you need to run your project inside of a virtual machine and you have to access the packager via a different IP address than the one which prints by default. In order to override the IP address or hostname that is detected by Create React Native App, you can specify your own hostname via the REACT_NATIVE_PACKAGER_HOSTNAME environment variable:
 
-##Mac and Linux:
+# Mac and Linux:
 
 REACT_NATIVE_PACKAGER_HOSTNAME='my-custom-ip-address-or-hostname' npm start
 Windows:
@@ -101,7 +101,7 @@ set REACT_NATIVE_PACKAGER_HOSTNAME='my-custom-ip-address-or-hostname'
 npm start
 The above example would cause the development server to listen on exp://my-custom-ip-address-or-hostname:19000.
 
-##Adding Flow
+# Adding Flow
 Flow is a static type checker that helps you write code with fewer bugs. Check out this introduction to using static types in JavaScript if you are new to this concept.
 
 React Native works with Flow out of the box, as long as your Flow version matches the one used in the version of React Native.
@@ -116,7 +116,7 @@ Now you can run npm run flow (or yarn flow) to check the files for type errors. 
 
 To learn more about Flow, check out its documentation.
 
-##Sharing and Deployment
+# Sharing and Deployment
 Create React Native App does a lot of work to make app setup and development simple and straightforward, but it's very difficult to do the same for deploying to Apple's App Store or Google's Play Store without relying on a hosted service.
 
 ##Publishing to Expo's React Native Community
@@ -136,7 +136,7 @@ This is usually as simple as running npm run eject in your project, which will w
 
 
 
-##Troubleshooting
+# Troubleshooting
 Networking
 If you're unable to load your app on your phone due to a network timeout or a refused connection, a good first step is to verify that your phone and computer are on the same network and that they can reach each other. Create React Native App needs access to ports 19000 and 19001 so ensure that your network and firewall settings allow access from your device to your computer on both of these ports.
 

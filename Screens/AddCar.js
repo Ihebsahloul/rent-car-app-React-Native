@@ -343,7 +343,7 @@ const AddCar = ({props}) => {
             />
                <View style={{ height : 100}}>
                <LinearGradient
-       colors={['#FB8D41','#FF4500','#CD458F', '#21C3C8','']}
+       colors={['#CD458F', '#21C3C8']}
     start={{x: 0.0, y: 1.0}} end={{x: 1.0, y: 1.0}}
     style={{ height: 53, width: '100%', alignItems: 'center', justifyContent: 'center',marginTop : 25,borderRadius : 8,padding :1}}
 >
@@ -395,7 +395,7 @@ buttonText: {
   textAlign: 'center',
   color: 'black',
   backgroundColor: '#F4F7FB',
-  padding: 12,
+  padding : Platform.OS === 'android' ? 10 : 12,
   marginLeft: 1,
   marginRight: 1,
   fontSize : 22,
